@@ -2,17 +2,6 @@
 
 int main()
 {
-	Game game();
-
-	while (game.running())
-	{
-		game.update();
-		game.render();
-	
-	}
-
-
-
 	//TEST WINDOW CODE
     //sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
     //sf::CircleShape shape(300.f);

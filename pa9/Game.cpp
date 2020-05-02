@@ -1,21 +1,51 @@
+#pragma once
 #include "Game.h"
 
-class Game{
-private:
+void Game::initVariables()
+{
+	window = nullptr;
+}
 
+inline void Game::initWindow()
+{
+	this->video_mode.height = 600;
+	this->video_mode.width = 800;
+	window = new sf::RenderWindow(video_mode, "Game", sf::Style::Titlebar | sf::Style::Close);
+}
 
-	sf::RenderWindow* Window;
-	sf::Event ev;
+inline Game::Game()
+{
+	initVariables();
+	initWindow();
+}
+
+inline Game::~Game()
+{
+	delete window;
+}
+
+bool Game::isRunning()
+{
+	return window->isOpen();
+}
+
+inline void Game::update()
+{
+	/*event poling*/
+	while(window->pollEvent(ev))
+	{
+		switch(ev.type)
+		{
+		//window close event
+		case sf::Event::Closed:
+			window->close();
+			break;
 	
+			/*inputs go here*/
+		}
+	}
+}
 
-	void initVariables();
-	void initWindow();
-
-public:
-	Game();
-	virtual ~Game();
-
-	void update();
-	void render();
-
-};
+inline void Game::render()
+{
+}

@@ -1,32 +1,29 @@
-#pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
+class Game {
+private:
 
-void Game::initVariables()
-{
-	this->Window = nullptr;
-}
+	//variables:
+	sf::RenderWindow* window;
+	sf::VideoMode video_mode;
+	sf::Event ev;
 
-inline void Game::initWindow()
-{
-	this->Window = new sf::RenderWindow(sf::VideoMode(600, 600), "Game", sf::Style::Titlebar | sf::Style::Close);
-}
+	//init functions:
+	void initVariables();
+	void initWindow();
 
-inline Game::Game()
-{
-}
+public:
+	//constructor / destructor
+	Game();
+	virtual ~Game();
 
-inline Game::~Game()
-{
-}
+	//getters / setters
+	bool isRunning();
 
-inline void Game::update()
-{
-}
+	void update();
+	void render();
 
-inline void Game::render()
-{
-}
+};
