@@ -151,13 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Entitiy.cpp" />
+    <ClCompile Include="BoidEnemy.cpp" />
+    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="vPosition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entitiy.h" />
+    <ClInclude Include="BoidEnemy.h" />
+    <ClInclude Include="Collision.hpp" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="vPosition.h" />
   </ItemGroup>

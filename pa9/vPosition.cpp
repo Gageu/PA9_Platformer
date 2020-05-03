@@ -1,42 +1,42 @@
 #include "vPosition.h"
 
-vPosition vPosition::copy(vPosition v)
+euclidVector euclidVector::copy(euclidVector v)
 {
-	vPosition cpy(v.x, v.y);
+	euclidVector cpy(v.x, v.y);
 	return cpy;
 }
 
-void vPosition::setMag(float)
+void euclidVector::setMag(float)
 {
 	normalize();
 	mulScalar(x);
 }
 
-void vPosition::addVector(vPosition v)
+void euclidVector::addVector(euclidVector v)
 {
 	this->x += v.x;
 	this->y += v.y;
 }
 
-void vPosition::subVector(vPosition v)
+void euclidVector::subVector(euclidVector v)
 {
 	this->x -= v.x;
 	this->y -= v.y;
 }
 
-void vPosition::mulVector(vPosition v)
+void euclidVector::mulVector(euclidVector v)
 {
 	this->x *= v.x;
 	this->y *= v.y;
 }
 
-void vPosition::divVector(vPosition v)
+void euclidVector::divVector(euclidVector v)
 {
 	this->x += v.x;
 	this->y += v.y;
 }
 
-float vPosition::angle(vPosition v)
+float euclidVector::angle(euclidVector v)
 {
 	if ((x == 0 && y == 0) || (v.x == 0 && v.y == 0)) {
 		return 0.0f;
@@ -58,46 +58,46 @@ float vPosition::angle(vPosition v)
 	return acos(cos_theta);
 }
 
-void vPosition::addScalar(float s)
+void euclidVector::addScalar(float s)
 {
 	this->x += s;
 	this->y += s;
 }
 
-void vPosition::subScalar(float s)
+void euclidVector::subScalar(float s)
 {
 	this->x -= s;
 	this->y -= s;
 }
 
-void vPosition::mulScalar(float s)
+void euclidVector::mulScalar(float s)
 {
 	this->x *= s;
 	this->y *= s;
 }
 
-void vPosition::divScalar(float s)
+void euclidVector::divScalar(float s)
 {
 	this->x /= s;
 	this->y /= s;
 }
 
-float vPosition::distance(vPosition v)
+float euclidVector::distance(euclidVector v)
 {
 	return sqrt(pow((x - v.x), 2) + pow((y - v.y), 2));
 }
 
-float vPosition::magnitude()
+float euclidVector::magnitude()
 {
 	return sqrt((x * x) + (y * y));;
 }
 
-float vPosition::magnitude(vPosition v)
+float euclidVector::magnitude(euclidVector v)
 {
 	return sqrt((v.x*v.x) + (v.y*v.y));
 }
 
-void vPosition::normalize()
+void euclidVector::normalize()
 {
 	float m = magnitude();
 	
