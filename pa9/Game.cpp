@@ -6,7 +6,7 @@ void Game::initVariables()
 	window = nullptr;
 }
 
-inline void Game::initWindow()
+void Game::initWindow()
 {
 	this->video_mode.height = 600;
 	this->video_mode.width = 800;
@@ -19,7 +19,7 @@ inline Game::Game()
 	initWindow();
 }
 
-inline Game::~Game()
+Game::~Game()
 {
 	delete window;
 }
@@ -29,7 +29,7 @@ bool Game::isRunning()
 	return window->isOpen();
 }
 
-inline void Game::update()
+void Game::update()
 {
 	/*event poling*/
 	while(window->pollEvent(ev))
@@ -46,6 +46,6 @@ inline void Game::update()
 	}
 }
 
-inline void Game::render()
+void Game::render()
 {
 }
