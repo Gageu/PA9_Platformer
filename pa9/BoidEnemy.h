@@ -2,7 +2,7 @@
 #include "vPosition.h"
 #include "Entity.h"
 
-class BoidEnemy : public Entitiy 
+class BoidEnemy : public Entity 
 {
 public:
 	euclidVector position, velocity, acceleration;

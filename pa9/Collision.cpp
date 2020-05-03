@@ -12,10 +12,14 @@
  * File:   collision.cpp
  * Author: Nick (original version), ahnonay (SFML2 compatibility)
  */
+#ifndef COLLISION_C
+#define COLLSION_C
+
 
 #include <SFML/Graphics.hpp>
 #include <map>
 #include "Collision.hpp"
+#include "Entity.h"
 
 namespace Collision
 {
@@ -68,7 +72,7 @@ namespace Collision
 
     BitmaskManager Bitmasks;
 
-    bool PixelPerfectTest(const sf::Sprite& Object1, const sf::Sprite& Object2, sf::Uint8 AlphaLimit) {
+    bool PixelPerfectTest(Entity& Object1, Entity& Object2, sf::Uint8 AlphaLimit) {
         sf::FloatRect Intersection;
         if (Object1.getGlobalBounds().intersects(Object2.getGlobalBounds(), Intersection)) {
             sf::IntRect O1SubRect = Object1.getTextureRect();
@@ -199,3 +203,4 @@ namespace Collision
         return true;
     }
 }
+#endif // !COLLISION_C

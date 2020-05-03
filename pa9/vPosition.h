@@ -45,7 +45,7 @@ public: //All of the class is public due to the chance that we might need to dir
 	static float magnitude(euclidVector v);
 
 	//vector opperations
-	void normalize() // make a unit vector
+	void normalize(); // make a unit vector
 
 
 };

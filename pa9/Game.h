@@ -1,5 +1,6 @@
 
-#include "Entitiy.h"
+#include "Entity.h"
+#include "Collision.hpp"
 #include <vector>
 
 class Game {
