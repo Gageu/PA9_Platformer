@@ -1,14 +1,18 @@
+#ifndef GAME_H
+#define GAME_H
 
-#include "Entity.h"
-#include "Collision.hpp"
+#include "BoidEnemy.h"
 #include <vector>
 
-class Game {
+
+class BoidGame {
 private:
-	
-	
+
+
 	//variables:
 	std::vector<sf::Drawable*> entity_list;
+	std::vector<BoidEnemy> flock;
+
 	sf::RenderWindow* window;
 	sf::VideoMode video_mode;
 	sf::Event ev;
@@ -19,8 +23,8 @@ private:
 
 public:
 	//constructor / destructor
-	Game();
-	virtual ~Game();
+	BoidGame();
+	virtual ~BoidGame();
 
 	//getters / setters
 	bool isRunning();
@@ -29,3 +33,4 @@ public:
 	void render();
 
 };
+#endif // !GAME_H

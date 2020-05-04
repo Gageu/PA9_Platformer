@@ -11,6 +11,10 @@
 class BoidEnemy : public Entity 
 {
 public:
+
+	BoidEnemy();
+	~BoidEnemy();
+
 	euclidVector position, velocity, acceleration;
 
 	float maxAcc, maxVel;
@@ -21,9 +25,11 @@ public:
 	//flocking functions
 
 	euclidVector Separation(std::vector<BoidEnemy> flock);
-	euclidVector Allignment(std::vector<BoidEnemy> flock);
+	euclidVector Alignment(std::vector<BoidEnemy> flock);
 	euclidVector Cohesion(std::vector<BoidEnemy> flock);
 
 	euclidVector seek(euclidVector);
+
+	void update(std::vector<BoidEnemy> flock);
 };
 

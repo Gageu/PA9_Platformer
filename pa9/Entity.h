@@ -9,7 +9,7 @@
 
 class Entity : public sf::Drawable, public sf::Transformable
 {
-private:
+public:
 	int health;
 
     float width, height;
@@ -17,7 +17,7 @@ private:
     sf::Texture* e_text;
 
 
-public:
+
 	
 	Entity();
 	virtual ~Entity();
@@ -30,6 +30,7 @@ public:
     virtual sf::FloatRect getGlobalBounds();
     virtual sf::IntRect getTextureRect();
     sf::Texture * getTexture();
+
 
     virtual void onCollsion(Entity e);
 
