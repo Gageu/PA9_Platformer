@@ -6,9 +6,15 @@ void BoidGame::initVariables()
 {
 	window = nullptr;
 	entity_list = std::vector<sf::Drawable*>();
-	BoidEnemy* boid = new BoidEnemy();
-	entity_list.push_back((sf::Drawable*) boid);
-	flock.push_back(*boid);
+	BoidEnemy* boid1 = new BoidEnemy();
+	BoidEnemy* boid2 = new BoidEnemy();
+	entity_list.push_back((sf::Drawable*) boid1);
+	flock.push_back(*boid1);
+	boid1->velocity = euclidVector(5, 5);
+	boid2->setPosition(100, 100);
+	boid2->velocity = euclidVector(5, 5);
+	entity_list.push_back((sf::Drawable*) boid2);
+	flock.push_back(*boid2);
 }
 
 void BoidGame::initWindow()
@@ -19,7 +25,7 @@ void BoidGame::initWindow()
 
 }
 
-inline BoidGame::BoidGame()
+BoidGame::BoidGame(int a)
 {
 	initVariables();
 	initWindow();
@@ -52,6 +58,7 @@ void BoidGame::update()
 	}
 
 	flock[0].update(flock);
+	flock[1].update(flock);
 }
 
 void BoidGame::render()

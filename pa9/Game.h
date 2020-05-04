@@ -7,8 +7,6 @@
 
 class BoidGame {
 private:
-
-
 	//variables:
 	std::vector<sf::Drawable*> entity_list;
 	std::vector<BoidEnemy> flock;
@@ -23,7 +21,7 @@ private:
 
 public:
 	//constructor / destructor
-	BoidGame();
+	BoidGame(int);
 	virtual ~BoidGame();
 
 	//getters / setters

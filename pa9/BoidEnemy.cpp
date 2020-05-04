@@ -1,5 +1,7 @@
 #include "BoidEnemy.h"
 
+#include <iostream> //debug
+
 BoidEnemy::BoidEnemy()
 {
     height = 30;
@@ -7,8 +9,8 @@ BoidEnemy::BoidEnemy()
     health = 1;
     e_vert = sf::VertexArray(sf::Quads, 4);
 
-    e_text = new sf::Texture();
-    e_text->loadFromFile("noText.png");
+    e_text = sf::Texture();
+    e_text.loadFromFile("noText.png");
 
     e_vert[0].position = sf::Vector2f(0.0f, 0.0f);
     e_vert[1].position = sf::Vector2f(60.f, 15.f);
@@ -177,5 +179,6 @@ void BoidEnemy::update(std::vector<BoidEnemy> flock)
     // Reset accelertion to 0 each cycle
     acceleration.mulScalar(0);
 
+    std::cout << position.x << "  " << position.y << std::endl; //debug
     setPosition(position.x, position.y);
 }

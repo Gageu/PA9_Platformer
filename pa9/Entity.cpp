@@ -16,8 +16,8 @@ Entity::Entity()
 	health = 1;
 	e_vert = sf::VertexArray(sf::Quads, 4);
 
-	e_text = new sf::Texture();
-	e_text->loadFromFile("noText.png");
+	e_text = sf::Texture();
+	e_text.loadFromFile("noText.png");
 
 	e_vert[0].position = sf::Vector2f(10.f, 10.f);
 	e_vert[1].position = sf::Vector2f(110.f, 10.f);
@@ -33,7 +33,6 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-	delete e_text;
 }
 
 void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -43,7 +42,7 @@ void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		states.transform *= getTransform(); // getTransform() is defined by sf::Transformable
 
 		// apply the texture
-		states.texture = e_text;
+		states.texture = &e_text;
 
 		// draw the vertex array
 		target.draw(e_vert, states);
@@ -67,7 +66,7 @@ sf::IntRect Entity::getTextureRect()
 
 sf::Texture * Entity::getTexture()
 {
-	return e_text;
+	return &e_text;
 }
 void Entity::onCollsion(Entity e)
 {

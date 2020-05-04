@@ -14,7 +14,7 @@ public:
 
     float width, height;
 	sf::VertexArray e_vert;
-    sf::Texture* e_text;
+    sf::Texture e_text;
 
 
 
