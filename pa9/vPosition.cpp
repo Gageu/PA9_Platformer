@@ -6,10 +6,39 @@ euclidVector euclidVector::copy(euclidVector v)
 	return cpy;
 }
 
+euclidVector euclidVector::difVectors(euclidVector a, euclidVector b)
+{
+	
+	return euclidVector(a.x - b.x, a.y - b.y);
+}
+
+euclidVector euclidVector::sumVectors(euclidVector a, euclidVector b)
+{
+	return euclidVector(a.x + b.x, a.y + b.y);
+}
+
+euclidVector euclidVector::proVectors(euclidVector a, euclidVector b)
+{
+	return euclidVector(a.x * b.x, a.y * b.y);
+}
+
+euclidVector euclidVector::quoVectors(euclidVector a, euclidVector b)
+{
+	return euclidVector(a.x / b.x, a.y / b.y);
+}
+
 void euclidVector::setMag(float)
 {
 	normalize();
 	mulScalar(x);
+}
+
+void euclidVector::capMag(double cap)
+{
+	if (magnitude() > cap) {
+		normalize();
+		mulScalar(cap);
+	}
 }
 
 void euclidVector::addVector(euclidVector v)

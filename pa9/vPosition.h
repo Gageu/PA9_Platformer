@@ -23,8 +23,17 @@ public: //All of the class is public due to the chance that we might need to dir
 		this->y = y;
 	}
 
-	static euclidVector copy(euclidVector);
+	
 	void setMag(float);
+	void capMag(double); //potentialy larger than the max float
+
+	//Static vector functions
+	static euclidVector copy(euclidVector);
+	static euclidVector difVectors(euclidVector, euclidVector);
+	static euclidVector sumVectors(euclidVector, euclidVector);
+	static euclidVector proVectors(euclidVector, euclidVector);
+	static euclidVector quoVectors(euclidVector, euclidVector);
+
 
 	//Vector arythmetic
 	void addVector(euclidVector);
