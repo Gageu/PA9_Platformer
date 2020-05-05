@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include "SFML/Graphics/Vertex.hpp"
 
 /* A posiotion vector class to handle all the math for acceleration, velocity, and position of the boid enemies*/
 
@@ -16,6 +17,11 @@ public: //All of the class is public due to the chance that we might need to dir
 	euclidVector(float x, float y) {
 		this->x = x;
 		this->y = y;
+	}
+
+	euclidVector(sf::Vector2f v) {
+		this->x = v.x;
+		this->y = v.y;
 	}
 
 	void set(float x, float y) {

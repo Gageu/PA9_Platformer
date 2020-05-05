@@ -8,6 +8,8 @@ BoidEnemy::BoidEnemy()
     width = 60;
     health = 1;
     e_vert = sf::VertexArray(sf::Quads, 4);
+    maxVel = 3.5;
+    maxAcc = .5;
 
     e_text = sf::Texture();
     e_text.loadFromFile("noText.png");
@@ -40,7 +42,7 @@ euclidVector BoidEnemy::Separation(std::vector<BoidEnemy> flock)
     for (int i = 0; i < flock.size(); i++) {
 
         // Calculate distance from current boid to boid we're looking at
-        float distance = position.distance(flock[i].position);
+        float distance = position.distance(flock[i].getPosition());
         // If this is a fellow boid and it's too close, move away from it
 
         if (distance > 0
@@ -94,7 +96,7 @@ euclidVector BoidEnemy::Alignment(std::vector<BoidEnemy> flock)
     int count = 0;
 
     for (int i = 0; i < flock.size(); i++) {
-        float d = position.distance(flock[i].position);
+        float d = position.distance(flock[i].getPosition());
         if ((d > 0) && (d < VIEW_DISTANCE)) { // 0 < d < 50
             dir.addVector(flock[i].velocity);
             count++;
@@ -124,7 +126,7 @@ euclidVector BoidEnemy::Cohesion(std::vector<BoidEnemy> flock)
     int count = 0;
 
     for (int i = 0; i < flock.size(); i++) {
-        float d = position.distance(flock[i].position);
+        float d = position.distance(flock[i].getPosition());
         if ((d > 0) && (d < VIEW_DISTANCE)) {
             sum.addVector(flock[i].position);
             count++;
@@ -155,6 +157,7 @@ euclidVector BoidEnemy::seek(euclidVector v)
 
 void BoidEnemy::update(std::vector<BoidEnemy> flock)
 {
+    position = getPosition();
     euclidVector sep = Separation(flock);
     euclidVector ali = Alignment(flock);
     euclidVector coh = Cohesion(flock);
@@ -179,6 +182,6 @@ void BoidEnemy::update(std::vector<BoidEnemy> flock)
     // Reset accelertion to 0 each cycle
     acceleration.mulScalar(0);
 
-    std::cout << position.x << "  " << position.y << std::endl; //debug
+    std::cout << getPosition().x << "  " << getPosition().y << std::endl; //debug
     setPosition(position.x, position.y);
 }

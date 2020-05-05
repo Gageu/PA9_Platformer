@@ -15,6 +15,7 @@ void BoidGame::initVariables()
 	boid2->velocity = euclidVector(5, 5);
 	entity_list.push_back((sf::Drawable*) boid2);
 	flock.push_back(*boid2);
+	(flock.begin())->setPosition(200.f, 200.f);
 }
 
 void BoidGame::initWindow()
@@ -57,8 +58,25 @@ void BoidGame::update()
 		}
 	}
 
+	
+
 	flock[0].update(flock);
 	flock[1].update(flock);
+
+	for (int i = 0; i < flock.size(); i++) {
+		flock[i].update(flock);
+		flock[i].setPosition(flock[i].position.x, flock[i].position.y);
+		float x, y, borderx, bordery;
+		borderx = window->getSize().x;
+		bordery = window->getSize().y;
+		x = flock[i].getPosition().x;
+		y = flock[i].getPosition().y;
+		if (x < 0)    flock[i].setPosition(x + borderx, y);
+		if (y < 0)    flock[i].setPosition(x, y + bordery);
+		if (x > borderx) flock[i].setPosition(x - borderx, y);
+		if (y > bordery) flock[i].setPosition(x, y - bordery);
+	}
+
 }
 
 void BoidGame::render()
@@ -66,7 +84,7 @@ void BoidGame::render()
 	window->clear();
 
 	for (int i = 0; i < entity_list.size(); i++) {
-		window->draw(*(entity_list[i]));
+		window->draw(flock[i]);
 	}
 
 	window->display();
