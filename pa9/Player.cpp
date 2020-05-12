@@ -31,7 +31,7 @@ void Player::update(sf::Event event) {
 	int x = 0;
 	if (event.type == sf::Event::KeyPressed) {
 		if (event.key.code == sf::Keyboard::D) {
-			if (x + 365 > 0) {
+			if (getPosition().x < 1865) {
 				x += 30;
 				setPosition(getPosition().x + x, getPosition().y);
 			}
@@ -39,7 +39,7 @@ void Player::update(sf::Event event) {
 
 		if (event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::A) {
-				if (x + 365 > 0) {
+				if (getPosition().x > 15) {
 					x -= 30;
 					setPosition(getPosition().x + x, getPosition().y);
 				}
@@ -47,7 +47,7 @@ void Player::update(sf::Event event) {
 		}
 		if (event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::S) {
-				if (x + 365 > 0) {
+				if (getPosition().y < 1035) {
 					x += 30;
 					setPosition(getPosition().x, getPosition().y + x);
 				}
@@ -55,7 +55,7 @@ void Player::update(sf::Event event) {
 		}
 		if (event.type == sf::Event::KeyPressed) {
 			if (event.key.code == sf::Keyboard::W) {
-				if (x + 365 > 0) {
+				if (getPosition().y > 15) {
 					x -= 30;
 					setPosition(getPosition().x, getPosition().y + x);
 				}
@@ -63,8 +63,15 @@ void Player::update(sf::Event event) {
 		}
 	}
 
-	if (health <= 0) {
-		setPosition(0, 0);
-	}
+}
 
+//Updates health after collision. Returns true if still alive. False if dead.
+bool Player::collision()
+{
+	bool status = true;
+	health -= 8;
+	if (health <= 0) {
+		status = false;
+	}
+	return status;
 }

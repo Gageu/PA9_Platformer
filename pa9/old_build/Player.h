@@ -10,6 +10,7 @@ public:
 	void update(sf::Event event);
 	bool collision();
 
+	sf::Clock hitDelay;
 	int health;
 
 };

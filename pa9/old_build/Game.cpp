@@ -7,8 +7,8 @@ void BoidGame::initVariables()
 	window = nullptr;
 	srand(time(NULL));
 	entity_list = std::vector<Entity*>();
-	player.setPosition(1000, 300);
-	if (!font.loadFromFile("Lato-Regular.ttf"))
+	player.setPosition(300, 300);
+	if (!font.loadFromFile("Lato-Regular.ttf")) 
 	{
 		std::cout << "font not loaded" << std::endl;
 	}
@@ -109,7 +109,7 @@ void BoidGame::update()
 		if (x > borderx) flock[i].setPosition(x - borderx, y);
 		if (y > bordery) flock[i].setPosition(x, y - bordery);
 		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
-			std::cout << "COLLISION" << std::endl;
+			//std::cout << "COLLISION" << std::endl;
 			player.collision();
 		}
 	}
@@ -126,8 +126,7 @@ void BoidGame::update()
 		if (x > borderx) flock2[i].setPosition(x - borderx, y);
 		if (y > bordery) flock2[i].setPosition(x, y - bordery);
 		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
-			std::cout << "COLLISION" << std::endl;
-			player.collision();
+			//std::cout << "COLLISION" << std::endl;
 		}
 	}
 
@@ -143,18 +142,12 @@ void BoidGame::update()
 		if (x > borderx) flock3[i].setPosition(x - borderx, y);
 		if (y > bordery) flock3[i].setPosition(x, y - bordery);
 		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
-			std::cout << "COLLISION" << std::endl;
-			player.collision();
+			//std::cout << "COLLISION" << std::endl;
 		}
 	}
 
-	score.setString("Score: " + std::to_string(clock.getElapsedTime().asMilliseconds() / 100));
+	score.setString("Score: " + std::to_string(clock.getElapsedTime().asMilliseconds()/100));
 	health.setString("health: " + std::to_string(player.health));
-
-	if (player.health <= 0) {
-		window->close();
-		std::cout << "Final Score: " << std::to_string(clock.getElapsedTime().asMilliseconds() / 100);
-	}
 }
 
 void BoidGame::render()
