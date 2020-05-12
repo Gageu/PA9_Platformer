@@ -109,7 +109,8 @@ void BoidGame::update()
 		if (x > borderx) flock[i].setPosition(x - borderx, y);
 		if (y > bordery) flock[i].setPosition(x, y - bordery);
 		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
-			std::cout << "COLLISION" << std::endl;
+			//std::cout << "COLLISION" << std::endl;
+			player.collision();
 		}
 	}
 
@@ -124,8 +125,8 @@ void BoidGame::update()
 		if (y < 0)    flock2[i].setPosition(x, y + bordery);
 		if (x > borderx) flock2[i].setPosition(x - borderx, y);
 		if (y > bordery) flock2[i].setPosition(x, y - bordery);
-		if (player.getPosition() == flock[i].getPosition()) {
-			player.health -= 20;
+		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
+			//std::cout << "COLLISION" << std::endl;
 		}
 	}
 
@@ -140,8 +141,8 @@ void BoidGame::update()
 		if (y < 0)    flock3[i].setPosition(x, y + bordery);
 		if (x > borderx) flock3[i].setPosition(x - borderx, y);
 		if (y > bordery) flock3[i].setPosition(x, y - bordery);
-		if (player.getPosition() == flock[i].getPosition()) {
-			player.health -= 20;
+		if ((x < px + 30 && x > px) && (y < py + 30 && y > py)) {
+			//std::cout << "COLLISION" << std::endl;
 		}
 	}
 

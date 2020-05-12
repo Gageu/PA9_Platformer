@@ -8,7 +8,9 @@ public:
 	Player();
 	~Player();
 	void update(sf::Event event);
+	bool collision();
 
+	sf::Clock hitDelay;
 	int health;
 
 };
