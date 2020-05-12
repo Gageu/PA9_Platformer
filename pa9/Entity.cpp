@@ -16,8 +16,8 @@ Entity::Entity()
 	health = 1;
 	e_vert = sf::VertexArray(sf::Quads, 4);
 
-	e_text = sf::Texture();
-	e_text.loadFromFile("noText.png");
+	//e_text = sf::Texture();
+	//e_text.loadFromFile("noText.png");
 
 	e_vert[0].position = sf::Vector2f(10.f, 10.f);
 	e_vert[1].position = sf::Vector2f(110.f, 10.f);
@@ -25,10 +25,10 @@ Entity::Entity()
 	e_vert[3].position = sf::Vector2f(10.f, 110.f);
 
 	// define its texture area to be a 25x50 rectangle starting at (0, 0)
-	e_vert[0].texCoords = sf::Vector2f(0.f, 0.f);
-	e_vert[1].texCoords = sf::Vector2f(25.f, 0.f);
-	e_vert[2].texCoords = sf::Vector2f(25.f, 50.f);
-	e_vert[3].texCoords = sf::Vector2f(0.f, 50.f);
+	//e_vert[0].texCoords = sf::Vector2f(0.f, 0.f);
+	//e_vert[1].texCoords = sf::Vector2f(25.f, 0.f);
+	//e_vert[2].texCoords = sf::Vector2f(25.f, 50.f);
+	//e_vert[3].texCoords = sf::Vector2f(0.f, 50.f);
 }
 
 Entity::~Entity()
