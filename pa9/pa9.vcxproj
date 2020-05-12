@@ -156,6 +156,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="vPosition.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,11 +164,15 @@
     <ClInclude Include="Collision.hpp" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="vPosition.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\Documents\calc2\noText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Lato-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

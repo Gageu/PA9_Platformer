@@ -18,11 +18,11 @@ BoidEnemy::BoidEnemy()
     e_vert[2].position = sf::Vector2f(0.0f, 30.f);
     e_vert[3].position = sf::Vector2f(20.f, 15.f);
 
-    // define its texture area to be a 60x30 rectangle starting at (0, 0)
-    e_vert[0].texCoords = sf::Vector2f(0.f, 0.f);
-    e_vert[1].texCoords = sf::Vector2f(60.f, 0.f);
-    e_vert[2].texCoords = sf::Vector2f(60.f, 30.f);
-    e_vert[3].texCoords = sf::Vector2f(0.f, 30.f);
+    //// define its texture area to be a 60x30 rectangle starting at (0, 0)
+    //e_vert[0].texCoords = sf::Vector2f(0.f, 0.f);
+    //e_vert[1].texCoords = sf::Vector2f(60.f, 0.f);
+    //e_vert[2].texCoords = sf::Vector2f(60.f, 30.f);
+    //e_vert[3].texCoords = sf::Vector2f(0.f, 30.f);
 
     e_vert[0].color = sf::Color::Red;
     e_vert[1].color = sf::Color::Red;
