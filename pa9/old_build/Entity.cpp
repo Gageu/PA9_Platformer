@@ -61,10 +61,10 @@ sf::FloatRect Entity::getGlobalBounds()
 
 sf::IntRect Entity::getTextureRect()
 {
-	return sf::IntRect(0, 0, (int)width, (int)height);
+	return sf::IntRect(0, 0, (int) width, (int) height);
 }
 
-sf::Texture* Entity::getTexture()
+sf::Texture * Entity::getTexture()
 {
 	return &e_text;
 }

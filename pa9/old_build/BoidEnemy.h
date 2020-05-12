@@ -9,7 +9,7 @@
 #define VIEW_DISTANCE 400.0f
 #define PREDATOR_SCALAR 900
 
-class BoidEnemy : public Entity
+class BoidEnemy : public Entity 
 {
 public:
 
@@ -34,3 +34,4 @@ public:
 
 	void update(std::vector<BoidEnemy> flock);
 };
+

@@ -9,7 +9,7 @@ class euclidVector
 public: //All of the class is public due to the chance that we might need to directly modify the x and y values of any given vector
 	float x, y;
 
-	euclidVector() {
+	euclidVector(){
 		x = 0;
 		y = 0;
 	}
@@ -29,7 +29,7 @@ public: //All of the class is public due to the chance that we might need to dir
 		this->y = y;
 	}
 
-
+	
 	void setMag(float);
 	void capMag(double); //potentialy larger than the max float
 
@@ -64,3 +64,4 @@ public: //All of the class is public due to the chance that we might need to dir
 
 
 };
+

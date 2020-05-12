@@ -12,27 +12,27 @@ class Entity : public sf::Drawable, public sf::Transformable
 public:
 	int health;
 
-    float width, height;
+	float width, height;
 	sf::VertexArray e_vert;
-    sf::Texture e_text;
+	sf::Texture e_text;
 
 
 
-	
+
 	Entity();
 	virtual ~Entity();
 
-    //copied from https://www.sfml-dev.org/tutorials/2.5/graphics-vertex-array.php as part of the library ///
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//copied from https://www.sfml-dev.org/tutorials/2.5/graphics-vertex-array.php as part of the library ///
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    virtual sf::FloatRect getLocalBounds();
-    virtual sf::FloatRect getGlobalBounds();
-    virtual sf::IntRect getTextureRect();
-    sf::Texture * getTexture();
+	virtual sf::FloatRect getLocalBounds();
+	virtual sf::FloatRect getGlobalBounds();
+	virtual sf::IntRect getTextureRect();
+	sf::Texture* getTexture();
 
 
-    virtual void onCollsion(Entity e);
+	virtual void onCollsion(Entity e);
 
 
 

@@ -8,7 +8,7 @@ euclidVector euclidVector::copy(euclidVector v)
 
 euclidVector euclidVector::difVectors(euclidVector a, euclidVector b)
 {
-
+	
 	return euclidVector(a.x - b.x, a.y - b.y);
 }
 
@@ -70,7 +70,7 @@ float euclidVector::angle(euclidVector v)
 	if ((x == 0 && y == 0) || (v.x == 0 && v.y == 0)) {
 		return 0.0f;
 	}
-
+	
 
 	double dot_product = x * v.x + y * v.y;
 	double mag1 = magnitude();
@@ -123,13 +123,13 @@ float euclidVector::magnitude()
 
 float euclidVector::magnitude(euclidVector v)
 {
-	return sqrt((v.x * v.x) + (v.y * v.y));
+	return sqrt((v.x*v.x) + (v.y*v.y));
 }
 
 void euclidVector::normalize()
 {
 	float m = magnitude();
-
+	
 	if (m > 0) {
 		x /= m;
 		y /= m;
