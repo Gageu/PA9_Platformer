@@ -1,6 +1,5 @@
 #include "BoidEnemy.h"
-
-#include <iostream> //debug
+ //debug
 
 BoidEnemy::BoidEnemy()
 {
@@ -8,11 +7,11 @@ BoidEnemy::BoidEnemy()
     width = 60;
     health = 1;
     e_vert = sf::VertexArray(sf::Quads, 4);
-    maxVel = 3.5;
+    maxVel = 10;
     maxAcc = .5;
 
-    e_text = sf::Texture();
-    e_text.loadFromFile("noText.png");
+    //e_text = sf::Texture();
+    //e_text.loadFromFile("noText.png");
 
     e_vert[0].position = sf::Vector2f(0.0f, 0.0f);
     e_vert[1].position = sf::Vector2f(60.f, 15.f);
@@ -24,6 +23,40 @@ BoidEnemy::BoidEnemy()
     e_vert[1].texCoords = sf::Vector2f(60.f, 0.f);
     e_vert[2].texCoords = sf::Vector2f(60.f, 30.f);
     e_vert[3].texCoords = sf::Vector2f(0.f, 30.f);
+
+    e_vert[0].color = sf::Color::Red;
+    e_vert[1].color = sf::Color::Red;
+    e_vert[2].color = sf::Color::Red;
+    e_vert[3].color = sf::Color::Red;
+}
+
+BoidEnemy::BoidEnemy(sf::Color color)
+{
+    height = 30;
+    width = 60;
+    health = 1;
+    e_vert = sf::VertexArray(sf::Quads, 4);
+    maxVel = 10;
+    maxAcc = .5;
+
+    //e_text = sf::Texture();
+    //e_text.loadFromFile("noText.png");
+
+    e_vert[0].position = sf::Vector2f(0.0f, 0.0f);
+    e_vert[1].position = sf::Vector2f(60.f, 15.f);
+    e_vert[2].position = sf::Vector2f(0.0f, 30.f);
+    e_vert[3].position = sf::Vector2f(20.f, 15.f);
+
+    // define its texture area to be a 60x30 rectangle starting at (0, 0)
+    e_vert[0].texCoords = sf::Vector2f(0.f, 0.f);
+    e_vert[1].texCoords = sf::Vector2f(60.f, 0.f);
+    e_vert[2].texCoords = sf::Vector2f(60.f, 30.f);
+    e_vert[3].texCoords = sf::Vector2f(0.f, 30.f);
+
+    e_vert[0].color = color;
+    e_vert[1].color = color;
+    e_vert[2].color = color;
+    e_vert[3].color = color;
 }
 
 BoidEnemy::~BoidEnemy()
@@ -181,9 +214,11 @@ void BoidEnemy::update(std::vector<BoidEnemy> flock)
     // Reset accelertion to 0 each cycle
     acceleration.mulScalar(0);
 
-    rotation = atan(velocity.y / velocity.x);
-    setRotation(rotation);
+   // velocity = euclidVector::difVectors(position, getPosition());
+    rotation = atan(velocity.y / velocity.x) * 57.2958 + 180;
 
-    std::cout << getPosition().x << "  " << getPosition().y << " : " << rotation << std::endl; //debug
+
+   // std::cout << getPosition().x << "  " << getPosition().y << " : " << rotation << std::endl; //debug
     setPosition(position.x, position.y);
+    setRotation((float)rotation);
 }

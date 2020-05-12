@@ -2,13 +2,21 @@
 #define GAME_H
 
 #include "BoidEnemy.h"
+#include <random>
+#define Boids_Per_Wave 2
+#define Wave_Timing 15
+#define Starting_Boids 20
+#define Game_Height 1080
+#define Game_Width 1920
 
 
 class BoidGame {
 private:
 	//variables:
-	std::vector<sf::Drawable*> entity_list;
+	std::vector<Entity*> entity_list;
 	std::vector<BoidEnemy> flock;
+	std::vector<BoidEnemy> flock2;
+	std::vector<BoidEnemy> flock3;
 
 	sf::RenderWindow* window;
 	sf::VideoMode video_mode;
