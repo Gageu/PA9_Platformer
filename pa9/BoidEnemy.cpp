@@ -171,7 +171,6 @@ void BoidEnemy::update(std::vector<BoidEnemy> flock)
     acceleration.addVector(coh);
 
 
-
     //To make the slow down not as abrupt
     acceleration.mulScalar(.4);
     // Update velocity
@@ -182,6 +181,9 @@ void BoidEnemy::update(std::vector<BoidEnemy> flock)
     // Reset accelertion to 0 each cycle
     acceleration.mulScalar(0);
 
-    std::cout << getPosition().x << "  " << getPosition().y << std::endl; //debug
+    rotation = atan(velocity.y / velocity.x);
+    setRotation(rotation);
+
+    std::cout << getPosition().x << "  " << getPosition().y << " : " << rotation << std::endl; //debug
     setPosition(position.x, position.y);
 }

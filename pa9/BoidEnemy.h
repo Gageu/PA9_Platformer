@@ -15,9 +15,9 @@ public:
 	BoidEnemy();
 	~BoidEnemy();
 
-	euclidVector position, velocity, acceleration;
+	euclidVector position, velocity, acceleration;;
 
-	float maxAcc, maxVel;
+	float maxAcc, maxVel, rotation;
 
 	bool predator;
 

@@ -12,6 +12,7 @@ void BoidGame::initVariables()
 	flock.push_back(*boid1);
 	boid1->velocity = euclidVector(5, 5);
 	boid2->setPosition(100, 100);
+	boid2->setRotation(45.f);
 	boid2->velocity = euclidVector(5, 5);
 	entity_list.push_back((sf::Drawable*) boid2);
 	flock.push_back(*boid2);
@@ -59,13 +60,8 @@ void BoidGame::update()
 	}
 
 	
-
-	flock[0].update(flock);
-	flock[1].update(flock);
-
 	for (int i = 0; i < flock.size(); i++) {
 		flock[i].update(flock);
-		flock[i].setPosition(flock[i].position.x, flock[i].position.y);
 		float x, y, borderx, bordery;
 		borderx = window->getSize().x;
 		bordery = window->getSize().y;

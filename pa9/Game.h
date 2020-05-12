@@ -2,7 +2,6 @@
 #define GAME_H
 
 #include "BoidEnemy.h"
-#include <vector>
 
 
 class BoidGame {
